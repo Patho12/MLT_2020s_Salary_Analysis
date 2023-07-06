@@ -23,6 +23,8 @@ WHERE
 	AND
 	experience is not null
 	AND 
+	experience < 1000
+	AND
 	title is not null
 UNION ALL
 SELECT 
@@ -41,7 +43,7 @@ Order by 2,1,3;
 
 ------------------------------
 
---		3.Salary + Hours worked + ShiftDif
+--		2.Salary + Hours worked + ShiftDif
 --			Comparing salary vs hours worked vs shift differential 
 --Data from 2022
 SELECT 
@@ -94,7 +96,7 @@ WHERE
 	shift_differential is not null
 ----------------------------
 
---		4.Salary + Education + years Exp
+--		3.Salary + Education + years Exp
 --			Comparing salary vs education vs years of exp
 -- Data from 2022
 SELECT 
@@ -159,7 +161,7 @@ Order by experience asc
 	--	Experience <100 to filter out outliers that were not taken out in data cleaning 
 
 
---		6.Salary + Job type + Location + Benefits
+--		4.Salary + Job type + Location + Benefits
 --			Comparing salary vs job type vs location vs benefits
 
 -- Data from 2022
@@ -240,7 +242,7 @@ WHERE
 	AND 
 	benefits is not null
 
---		7.Salary + Certifications + Location
+--		5.Salary + Certifications + Location
 --			Comparing salary vs certifications vs location
 --Data from 2022
 SELECT 
@@ -260,7 +262,7 @@ WHERE
 	state is not null
 --2023 data does not have certifications
 
---		8. Average salary per Job title and exp/location
+--		6. Average salary per Job title and exp/location
 --			Comparing the AVG salary based on experience and location 
 -- Hourly 2022
 SELECT 
@@ -407,7 +409,7 @@ AS combined_data
 GROUP BY experience
 ORDER BY experience asc;
 
---		9. Average salary Province
+--		7. Average salary Province
 SELECT 
 	state, 
 	AVG(salary) AS average_salary
