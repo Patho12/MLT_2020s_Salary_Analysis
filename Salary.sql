@@ -155,7 +155,7 @@ WHERE
 	experience is not null
 	AND
 	education_level is not null
-Order by experience asc
+ORDER BY experience asc
 
 	--Notes: 
 	--	Experience <100 to filter out outliers that were not taken out in data cleaning 
@@ -242,6 +242,34 @@ WHERE
 	AND 
 	benefits is not null
 
+--FOR tableau query (only looking at Salary vs currency, title and country)
+SELECT 
+	salary, 
+	currency, 
+	title, 
+	country
+FROM salary2022
+WHERE
+	salary is not null
+	AND
+	title is not null
+	AND 
+	country is not null
+UNION ALL
+SELECT 
+	salary, 
+	currency, 
+	job_title, 
+	country
+FROM salary2023
+WHERE
+	salary is not null
+	AND
+	job_title is not null
+	AND 
+	country is not null
+	
+
 --		5.Salary + Certifications + Location
 --			Comparing salary vs certifications vs location
 --Data from 2022
@@ -260,6 +288,20 @@ WHERE
 	country is not null
 	AND 
 	state is not null
+-- Without state for Tableu 
+SELECT 
+	salary, 
+	currency, 
+	certification, 
+	country
+FROM salary2022
+WHERE
+	salary is not null
+	AND
+	certification is not null
+	AND
+	country is not null
+
 --2023 data does not have certifications
 
 --		6. Average salary per Job title and exp/location
