@@ -40,7 +40,73 @@ WHERE
 	AND 
 	job_title is not null
 Order by 2,1,3;
-
+--
+-- FOR tableu (AVG salary hourly vs title) 
+SELECT 
+	salary,
+	currency,
+	title,
+	experience
+FROM salary2022
+WHERE
+	salary is not null
+	AND
+	salary < 1000
+	AND
+	experience is not null
+	AND 
+	experience < 1000
+	AND
+	title is not null
+UNION ALL
+SELECT 
+	salary,
+	currency,
+	job_title,
+	experience
+FROM salary2023
+WHERE
+	salary is not null
+	AND
+	salary < 1000
+	AND
+	experience is not null
+	AND 
+	job_title is not null
+Order by 2,1,3;
+-- FOR tableau Yearly salary vs exp
+SELECT 
+	salary,
+	currency,
+	title,
+	experience
+FROM salary2022
+WHERE
+	salary is not null
+	AND
+	salary > 10000
+	AND
+	experience is not null
+	AND 
+	experience < 1000
+	AND
+	title is not null
+UNION ALL
+SELECT 
+	salary,
+	currency,
+	job_title,
+	experience
+FROM salary2023
+WHERE
+	salary is not null
+	AND
+	salary > 10000
+	AND
+	experience is not null
+	AND 
+	job_title is not null
+Order by 2,1,3;
 ------------------------------
 
 --		2.Salary + Hours worked + ShiftDif
@@ -143,6 +209,8 @@ WHERE
 	AND 
 	salary is not null 
 	AND
+	salary < 1000
+	AND
 	experience is not null
 	AND
 	education is not null
@@ -151,6 +219,8 @@ SELECT salary, currency, education_level, experience
 FROM salary2023 
 WHERE 
 	salary is not null 
+	AND
+	salary < 1000
 	AND
 	experience is not null
 	AND
@@ -195,6 +265,8 @@ FROM salary2023
 WHERE
 	salary is not null
 	AND
+	salary < 1000
+	AND 
 	job_title is not null
 	AND 
 	country is not null
@@ -215,6 +287,8 @@ FROM salary2022
 WHERE
 	salary is not null
 	AND
+	salary < 1000
+	AND
 	title is not null
 	AND 
 	country is not null
@@ -233,6 +307,8 @@ SELECT
 FROM salary2023
 WHERE
 	salary is not null
+	AND
+	salary < 1000
 	AND
 	job_title is not null
 	AND 
